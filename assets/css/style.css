@@ -1,4 +1,7 @@
-.animal-image {
-    width: 100px;
-    height: 100px;
+.container {
+    float: left;
+}
+
+#number-to-guess {
+    background-color: blue;
 }
