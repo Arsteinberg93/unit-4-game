@@ -19,20 +19,23 @@
     <h1><span id="number-to-guess"></span></h1>
 
     <div>
-        <p id="wins"></p>
-        <p id="losses"></p>
+        <p>Wins: </p> <span id="wins"> </span>
+        <p>Losses: </p> <span id="losses"> </span>
+        <p>Counter: </p> <span id="counter"> </span>
+
+        <br>
+
 
 
     </div>
 
     <div class="container">
-        <img id="turle1" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle1" style="width:100px;height:100px;">
-        <img id="turle2" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle2" style="width:100px;height:100px;">
-        <img id="turle3" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle3" style="width:100px;height:100px;">
-        <img id="turle4" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle4" style="width:100px;height:100px;">
+        <img id="turtle1" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle1" style="width:100px;height:100px;">
+        <img id="turtle2" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle2" style="width:100px;height:100px;">
+        <img id="turtle3" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle3" style="width:100px;height:100px;">
+        <img id="turtle4" src="https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg" alt="Turle4" style="width:100px;height:100px;">
     </div>
-
-    <p id="counter"></p>
+    <br>
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -46,7 +49,7 @@
             var turtleOne = Math.floor(Math.random() * 12) + 1;
             var turtleTwo = Math.floor(Math.random() * 12) + 1;
             var turtleThree = Math.floor(Math.random() * 12) + 1;
-            var turtlefour = Math.floor(Math.random() * 12) + 1;
+            var turtleFour = Math.floor(Math.random() * 12) + 1;
 
             var counter = 0;
             var wins = 0;
@@ -66,13 +69,14 @@
                 var turtleThree = Math.floor(Math.random() * 12) + 1;
                 var turtlefour = Math.floor(Math.random() * 12) + 1;
                 counter = 0
+                $("#counter").text(counter);
 
             }
 
             function win() {
                 alert("You won!")
                 wins++;
-                $("wins").text(wins);
+                $("#wins").text(wins);
                 restart();
 
             }
@@ -80,13 +84,12 @@
             function lose() {
                 alert("You lose!")
                 losses++;
-                $("losses").text(losses);
+                $("#losses").text(losses);
                 restart();
 
             }
 
-            $("#turtle1").on('click', function() { 
-                var turtleOne = Math.floor(Math.random() * 12) + 1;  
+            $("#turtle1").on('click', function() {  
                 counter = counter + turtleOne;  
                 console.log(turtleOne);  
                 $("#counter").text(counter);        
@@ -96,10 +99,9 @@
                 else if (counter > targetNumber) {          
                     lose();        
                 }     
-            })  
+            });  
 
             $("#turtle2").on('click', function() { 
-                var turtleTwo = Math.floor(Math.random() * 12) + 1;  
                 counter = counter + turtleTwo;    
                 $("#counter").text(counter);        
                 if (counter == targetNumber) {          
@@ -108,10 +110,9 @@
                 else if (counter > targetNumber) {          
                     lose();        
                 }     
-            })  
+            });  
 
             $("#turtle3").on('click', function() {  
-                var turtleThree = Math.floor(Math.random() * 12) + 1; 
                 counter = counter + turtleThree;    
                 $("#counter").text(counter);                 
                 if (counter == targetNumber) {          
@@ -120,155 +121,25 @@
                 else if (counter > targetNumber) {          
                     lose();        
                 }     
-            })  
+            });  
 
-            $("#turtle4").on('click', function() {   
-                var turtleFour = Math.floor(Math.random() * 12) + 1;
+
+            $("#turtle4").on('click', function() {  
                 counter = counter + turtleFour;    
-                $("#counter").text(counter);                  
+                $("#counter").text(counter);                 
                 if (counter == targetNumber) {          
                     win();        
                 }        
                 else if (counter > targetNumber) {          
                     lose();        
                 }     
-            }) 
-
-            winsText.textContent = "wins: " + wins;
-            lossesText.textContent = "losses: " + losses;
-            counterText.textContent = "counter: " + counter;     
-        });   
+            });
 
 
-
-
-        // ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-
-
-
-        // for (var i = 0; i < 4; i++) {
-
-
-        // // var animalImages = $("<img>");
-
-        // // animalImages.addClass("animal-image");
-
-        // // animalImages.attr("src", "https://cdn.images.express.co.uk/img/dynamic/galleries/x701/370884.jpg");
-
-        // // animalImages.attr("data-animalvalue", numberOptions);
-        // // // console.log(animalImages);
-
-        // // $("#animals").append(animalImages);
-
-        // // }
-
-        // function
-
-
-        // $("#turtle1").on("click", function() {
-
-
-        //     for (var i = 0; i < 1; i++) {
-        //         var turtleValue = ($(this).attr("#turtle1"));
-        //         turtlelValue = parseInt(turtleValue);
-        //         // We then add the crystalValue to the user's "counter" which is a global variable.
-        //         // Every click, from every crystal adds to the global counter.
-
-        //         numberOptions;
-        //         counter += parseInt(numberOptions[i]);
-
-
-        //     }
-        //     console.log(counter);
-
-        //     $(".counter").html("Counter: " + counter);
-
-        // })
-
-        // $("#turtle2").on("click", function() {
-
-
-        //     for (var i = 0; i < 1; i++) {
-
-        //         var turtleValue = ($(this).attr("#turtle2"));
-        //         turtlelValue = parseInt(turtleValue);
-
-        //         numberOptions;
-        //         counter += parseInt(numberOptions[i]);
-
-
-        //     }
-        //     console.log(counter);
-
-        //     $(".counter").html("Counter: " + counter)
-
-        // })
-
-        // $("#turtle3").on("click", function() {
-
-
-        //     for (var i = 0; i < 1; i++) {
-        //         var turtleValue = ($(this).attr("#turtle3"));
-        //         turtlelValue = parseInt(turtleValue);
-
-        //         numberOptions;
-        //         counter += parseInt(numberOptions[i]);
-
-
-        //     }
-        //     console.log(counter);
-
-        //     $(".counter").html("Counter: " + counter)
-
-        // })
-
-        // $("#turtle4").on("click", function() {
-
-
-        //     for (var i = 0; i < 1; i++) {
-        //         var turtleValue = ($(this).attr("#turtle4"));
-        //         turtlelValue = parseInt(turtleValue);
-
-        //         numberOptions;
-        //         counter += parseInt(numberOptions[i]);
-
-
-        //     }
-        //     console.log(counter);
-
-        //     $(".counter").html("Counter: " + counter)
-
-        // })
-
-
-        // // $(".animal-image").on("click", function() {
-
-
-        // //     var animalValue = ($(this).attr("data-animalvalue"));
-        // //     animalValue = parseInt(animalValue);
-
-        // //     counter += animalValue;
-        // //     console.log(counter);
-
-
-        // // });
-
-        // if (counter === targetNumber) {
-        //     wins++;
-        //     restart();
-
-        // }
-        // if (counter > targetNumber) {
-        //     losses++;
-        //     restart();
-
-        // };
-
-
-
-        // winsText.textContent = "wins: " + wins;
-        // lossesText.textContent = "losses: " + losses;
-        // counterText.textContent = "counter: " + counter;
+            winsText.textContent = wins;
+            lossesText.textContent = losses;
+            counterText.textContent = counter;     
+        });
     </script>
 </body>
 
